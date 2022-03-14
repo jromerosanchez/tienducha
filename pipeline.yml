@@ -1,0 +1,37 @@
+pipeline {
+            agent {label 'tienducha'}
+                stages {
+                        stage('Descargar ficheros configuración') {
+                            steps {
+                                echo 'Descargando...'
+                                sh 'rm -R .* || true'
+                                sh 'rm -R * || true'
+                                sh 'git clone https://xxxxx.git .'
+                            }
+                        }
+                        stage('Deploy Docker Compose') {
+                            steps {
+                                echo 'Desplegando Compose...'
+                                sh 'sudo docker-compose up -d'
+                            }
+                        }
+                        stage('Add PHP Files') {
+                            steps {
+                                echo 'Añadiendo los ficheros PHP a producción...'
+                                sh 'sudo cp ./php/* web/'
+                            }
+                        }
+                        stage('Add DB Tables') {
+                            steps {
+                                echo 'Añadiendo las tablas de la Base de Datos...'
+                                sh 'sudo docker-compose exec -T webserver sh -c "mysql -u root -psecret iaw_db < /scripts/mysql.sql" || true'
+                            }
+                        }
+                        stage('Installing Composer') {
+                            steps {
+                                echo 'Instalando Composer...'
+                                sh 'sudo cd web/ && composer install || true'
+                            }
+                        }
+                }
+        }
