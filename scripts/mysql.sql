@@ -1,18 +1,19 @@
-CREATE DATABASE IF NOT EXISTS tienducha;
-USE tienducha;
-DROP TABLE IF EXISTS `clientes`;
-CREATE TABLE `clientes` (
-  `dni` varchar(9) NOT NULL,
-  `nombre` varchar(100) DEFAULT NULL,
-  `apellidos` varchar(200) DEFAULT NULL,
-  `fecha_nac` date DEFAULT NULL,
-  `telefono` int DEFAULT NULL
+CREATE DATABASE IF NOT EXISTS iaw_db;
+USE iaw_db;
+
+DROP TABLE IF EXISTS productos;
+CREATE TABLE productos (
+codigo INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+descripcion varchar(20),
+rebaja decimal(8),
+estarebajas varchar(2),
+precio varchar (5)
 );
-DROP TABLE IF EXISTS `productos`;
-CREATE TABLE `productos` (
-  `codigo` int NOT NULL,
-  `descripcion` varchar(200) DEFAULT NULL,
-  `rebaja` int DEFAULT NULL,
-  `estarebajas` enum('Si','No') DEFAULT NULL,
-  `precio` decimal(6,2) DEFAULT NULL
+
+DROP TABLE IF EXISTS clientes;
+CREATE TABLE clientes (
+nombre  varchar(20),
+pApellido varchar(20),
+sApellido varchar(20),
+DNI varchar (9)
 );
