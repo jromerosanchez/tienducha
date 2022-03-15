@@ -27,12 +27,6 @@ pipeline {
                                 sh 'sudo docker-compose exec -T webserver sh -c "mysql -u root -psecret iaw_db < /scripts/mysql.sql" || true'
                             }
                         }
-                        stage('Composer') {
-                            steps {
-                                echo 'Instalando Composer'
-                                sh 'sudo cd web/ && composer install || true'
-                            }
-                        }
                 }
         }
 
