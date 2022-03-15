@@ -13,7 +13,7 @@ pipeline {
                             steps {
                                 echo 'Desplegando'
                                         dir("/var/lib/jenkins/workspace/tienducha"){
-                                sh 'sudo docker-compose up -d'
+                                sh 'docker-compose up -d'
                                         }
                             }
                         }
