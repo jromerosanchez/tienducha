@@ -18,7 +18,7 @@ pipeline {
                         stage('Añadiendo tablas a la BD') {
                             steps {
                                 echo 'Añadiendo tablas'
-                                sh 'docker exec -i tienducha_bbdd_1 bash -c "mysql -u root -psecret iaw_db < /scripts/mysql.sql" || true'
+                                sh 'docker exec -i tienducha_bbdd_1 bash -c "cd /scripts; mysql -u root -psecret iaw_db < mysql.sql" || true'
                             }
                         }
                 }
