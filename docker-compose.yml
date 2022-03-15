@@ -7,7 +7,7 @@ services:
     ports:
       - "8085:80"
     volumes:
-      - ./php:/var/www/html
+      - /home/jenkins/php:/var/www/html
       - ./apache/logs:/var/log/apache2
     depends_on:
       - "bbdd"
