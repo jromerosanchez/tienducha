@@ -12,7 +12,7 @@ pipeline {
                         stage('Deploy') {
                             steps {
                                 echo 'Desplegando'
-                                        dir("/var/lib/jenkins/workspace"){
+                                        dir("/var/lib/jenkins/workspace/tienducha"){
                                 sh 'docker-compose up -d'
                                         }
                             }
