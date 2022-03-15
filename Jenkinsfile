@@ -1,5 +1,5 @@
 pipeline {
-            agent any
+            agent {label 'principal'}
                 stages {
                         stage('Descarga') {
                             steps {
@@ -12,7 +12,9 @@ pipeline {
                         stage('Deploy') {
                             steps {
                                 echo 'Desplegando'
+                                        dir("/var/lib/jenkins/workspace"){
                                 sh 'docker-compose up -d'
+                                        }
                             }
                         }
                         stage('PHP') {
