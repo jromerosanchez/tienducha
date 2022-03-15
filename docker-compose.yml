@@ -7,7 +7,7 @@ services:
     ports:
       - "8085:80"
     volumes:
-      - /home/jenkins/php:/var/www/html
+      - /home/jenkins/workspace/tienducha/php:/var/www/html
       - ./apache/logs:/var/log/apache2
     depends_on:
       - "bbdd"
@@ -20,7 +20,7 @@ services:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_PORT: 3306
     volumes:
-      - /home/jenkins/scripts/:/scripts
+      - /home/jenkins/workspace/tienducha/scripts:/scripts
       - ./.db_data:/var/lib/mysql
       - ./.db_backup:/docker-entrypoint-initdb.d
     ports:
