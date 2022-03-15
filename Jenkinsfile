@@ -15,12 +15,6 @@ pipeline {
                                 sh 'docker-compose up -d'
                                         }
                         }
-                        stage('PHP') {
-                            steps {
-                                echo 'Añadiendo ficheros PHP'
-                                sh 'cp ./php/* web/'
-                            }
-                        }
                         stage('Añadiendo tablas a la BD') {
                             steps {
                                 echo 'Añadiendo tablas'
