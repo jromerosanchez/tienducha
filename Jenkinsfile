@@ -1,5 +1,5 @@
 pipeline {
-            agent {label 'tienducha'}
+            agent {label 'jorgetienda'}
                 stages {
                         stage('Descarga') {
                             steps {
